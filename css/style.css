@@ -1,0 +1,32 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1em;
+    height: 100vh;
+    width: 100vw;
+}
+header{
+    display: flex;
+    flex-flow: row wrap;
+}
+nav > a{
+    color:red
+}
+section{
+    min-height: 800px;
+}
+#home{
+    color: aliceblue;
+    background-image: linear-gradient(to bottom, #0A0E19,#192441);
+}
+#projetos{
+    
+    background-image: url(../assets/imagens/azul_escuro.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
