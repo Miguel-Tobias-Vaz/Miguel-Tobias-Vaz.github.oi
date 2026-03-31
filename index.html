@@ -1,45 +1,81 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
-    <title>Portfólio</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/style.css">
+  <title>Portfólio</title>
 </head>
 <body>
-    <header>
-        <h1>Miguel Tobias</h1>
+
+  <header>
+    <div class="logo">MV</div>
+
     <nav>
-        <a href="#">Home</a>
-        <a href="#">Projetos</a>
-        <a href="#">Tecnologias</a>
-        <a href="#">sobre</a>
-        <a href="#">contato</a>
+      <a href="#home">Home</a>
+      <a href="#sobre">Sobre Mim</a>
+      <a href="#projetos">Projetos</a>
+      <a href="#tecnologias">Tecnologias</a>
+      <a href="#contato">Contato</a>
     </nav>
-    </header>
-    <main>
-    <section id="home">
+  </header>
+
+  <main>
+    <section id="home" class="hero">
+        <div class="hero-esquerda">
         <h1>Miguel Tobias Vaz Furtado</h1>
         <h2>Desenvolvedor em formação</h2>
-        <p>Desenvolvedor em formação focado em lógica de programação e
-          desenvolvimento de sistemas. Construindo projetos práticos e
-          evoluindo continuamente na área de tecnologia.</p>
 
-    </section>
-    <section id="projetos">
-        <h1>oi</h1>
-    p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque illum odit et accusantium laboriosam itaque, obcaecati architecto tempore quisquam nam animi, optio, voluptate placeat quasi in culpa at dolorum. Eum.</p>
-    </section>
-    <section id="tecnologias">
+        <p>
+        Desenvolvedor em formação focado em lógica de programação e
+        desenvolvimento de sistemas. Construindo projetos práticos e
+        evoluindo continuamente na área de tecnologia.
+        </p>
 
-    </section>
-    <section id="sobre">
+        <div class="botoes">
+        <a href="#contato" class="btn btn-azul">Contato</a>
+        <a href="#projetos" class="btn btn-transparente">Ver Projetos</a>
+        </div>
 
-    </section>
-    <section id="contato">
+        <div class="redes">
+        <a href="#">in</a>
+        <a href="#">gh</a>
+        </div>
+        </div>
 
+        <div class="hero-direita">
+        <div class="tech python">🐍 Python</div>
+        <div class="tech java">☕ Java</div>
+        <div class="tech sql">🗃 SQL</div>
+        <div class="tech html">🔥 HTML</div>
+        <div class="tech css">🎨 CSS</div>
+        </div>
     </section>
-    </main>
-    <footer></footer>
+
+    <section id="tecnologias" class="secao-padrao">
+      <h2>Tecnologias</h2>
+      <p>HTML, CSS, JavaScript, Java, Python e SQL.</p>
+    </section>
+
+    <section id="sobre" class="secao-padrao">
+      <h2>Sobre Mim</h2>
+      <p>
+        Sou estudante de Análise e Desenvolvimento de Sistemas, focado em lógica
+        de programação, desenvolvimento web e construção de projetos práticos.
+      </p>
+    </section>
+
+    <section id="contato" class="secao-padrao">
+      <h2>Contato</h2>
+      <p>Email: seuemail@email.com</p>
+      <p>LinkedIn: seu-linkedin</p>
+      <p>GitHub: seu-github</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2026 Miguel Tobias Vaz Furtado</p>
+  </footer>
+
 </body>
 </html>
