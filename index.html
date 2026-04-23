@@ -1,81 +1,227 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="css/style.css">
-  <title>Portfólio</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfólio - Miguel Tobias</title>
+  <link rel="stylesheet" href="main.css" />
+
+  <!-- Ícones -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
 </head>
 <body>
+  <header class="topbar">
+    <div class="logo-circle"></div>
 
-  <header>
-    <div class="logo">MV</div>
-
-    <nav>
-      <a href="#home">Home</a>
-      <a href="#sobre">Sobre Mim</a>
+    <nav class="menu">
+      <a href="#home" class="active">Home</a>
       <a href="#projetos">Projetos</a>
-      <a href="#tecnologias">Tecnologias</a>
       <a href="#contato">Contato</a>
+      <a href="#tecnologias">Tecnologias</a>
+      <a href="#sobre">Sobre mim</a>
     </nav>
   </header>
 
   <main>
-    <section id="home" class="hero">
-        <div class="hero-esquerda">
-        <h1>Miguel Tobias Vaz Furtado</h1>
-        <h2>Desenvolvedor em formação</h2>
+    <!-- HOME -->
+    <section id="home" class="section home-section">
+      <div class="container hero">
+        <div class="hero-text">
+          <h1>Miguel Tobias Vaz Furtado</h1>
+          <h2>Desenvolvedor Junior</h2>
 
-        <p>
-        Desenvolvedor em formação focado em lógica de programação e
-        desenvolvimento de sistemas. Construindo projetos práticos e
-        evoluindo continuamente na área de tecnologia.
-        </p>
+          <p>
+            Aqui você pode colocar sua apresentação. Fale quem você é,
+            o que estuda, seus objetivos e em que tipo de projeto deseja atuar.
+          </p>
 
-        <div class="botoes">
-        <a href="#contato" class="btn btn-azul">Contato</a>
-        <a href="#projetos" class="btn btn-transparente">Ver Projetos</a>
+          <div class="hero-buttons">
+            <a href="#contato" class="btn">Contato</a>
+            <a href="#projetos" class="btn">Projetos</a>
+          </div>
         </div>
 
-        <div class="redes">
-        <a href="#">in</a>
-        <a href="#">gh</a>
-        </div>
-        </div>
+        <div class="tech-preview-card">
+          <div class="tech-badges">
+            <span class="badge js">
+              <i class="devicon-javascript-plain"></i>
+              JavaScript
+            </span>
 
-        <div class="hero-direita">
-        <div class="tech python">🐍 Python</div>
-        <div class="tech java">☕ Java</div>
-        <div class="tech sql">🗃 SQL</div>
-        <div class="tech html">🔥 HTML</div>
-        <div class="tech css">🎨 CSS</div>
+            <span class="badge html">
+              <i class="devicon-html5-plain"></i>
+              HTML
+            </span>
+
+            <span class="badge css">
+              <i class="devicon-css3-plain"></i>
+              CSS
+            </span>
+          </div>
         </div>
+      </div>
     </section>
 
-    <section id="tecnologias" class="secao-padrao">
-      <h2>Tecnologias</h2>
-      <p>HTML, CSS, JavaScript, Java, Python e SQL.</p>
+    <!-- PROJETOS -->
+    <section id="projetos" class="section projects-section">
+      <div class="container">
+        <h2 class="section-title">Projetos</h2>
+
+        <div class="projects-grid">
+          <article class="project-card">
+            <div class="project-thumb"></div>
+
+            <div class="project-content">
+              <h3>Projeto: Opto-Review</h3>
+              <p class="desc-title">Descrição:</p>
+              <p>
+                Sistema voltado para organização, análise e exibição de
+                informações de forma prática e objetiva.
+              </p>
+
+              <div class="mini-tags">
+                <span class="mini-badge html-mini">
+                  <i class="devicon-html5-plain"></i> HTML
+                </span>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-thumb"></div>
+
+            <div class="project-content">
+              <h3>Projeto: Opto-Review</h3>
+              <p class="desc-title">Descrição:</p>
+              <p>
+                Projeto com foco em interface, organização de conteúdo e
+                experiência visual do usuário.
+              </p>
+
+              <div class="mini-tags">
+                <span class="mini-badge html-mini">
+                  <i class="devicon-html5-plain"></i> HTML
+                </span>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-thumb"></div>
+
+            <div class="project-content">
+              <h3>Projeto: Opto-Review</h3>
+              <p class="desc-title">Descrição:</p>
+              <p>
+                Estrutura pensada para apresentar projeto, descrição e stack
+                utilizada de forma limpa.
+              </p>
+
+              <div class="mini-tags">
+                <span class="mini-badge html-mini">
+                  <i class="devicon-html5-plain"></i> HTML
+                </span>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-thumb"></div>
+
+            <div class="project-content">
+              <h3>Projeto: Opto-Review</h3>
+              <p class="desc-title">Descrição:</p>
+              <p>
+                Card de projeto pronto para você depois substituir por imagem,
+                link, GitHub e tecnologias.
+              </p>
+
+              <div class="mini-tags">
+                <span class="mini-badge html-mini">
+                  <i class="devicon-html5-plain"></i> HTML
+                </span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
     </section>
 
-    <section id="sobre" class="secao-padrao">
-      <h2>Sobre Mim</h2>
-      <p>
-        Sou estudante de Análise e Desenvolvimento de Sistemas, focado em lógica
-        de programação, desenvolvimento web e construção de projetos práticos.
-      </p>
+    <!-- CONTATO -->
+    <section id="contato" class="section contact-section">
+      <div class="container contact-content">
+        <h2 class="section-title">Contato</h2>
+
+        <div class="contact-box">
+          <p><strong>Email:</strong> seuemail@exemplo.com</p>
+          <p><strong>LinkedIn:</strong> linkedin.com/in/seu-link</p>
+          <p><strong>GitHub:</strong> github.com/seuusuario</p>
+          <p><strong>WhatsApp:</strong> (91) 00000-0000</p>
+        </div>
+      </div>
     </section>
 
-    <section id="contato" class="secao-padrao">
-      <h2>Contato</h2>
-      <p>Email: seuemail@email.com</p>
-      <p>LinkedIn: seu-linkedin</p>
-      <p>GitHub: seu-github</p>
+    <!-- TECNOLOGIAS -->
+    <section id="tecnologias" class="section tech-section">
+      <div class="container">
+        <h2 class="section-title">Tecnologias</h2>
+
+        <div class="tech-grid">
+          <div class="tech-box">
+            <i class="devicon-html5-plain colored"></i>
+            <span>HTML</span>
+          </div>
+
+          <div class="tech-box">
+            <i class="devicon-css3-plain colored"></i>
+            <span>CSS</span>
+          </div>
+
+          <div class="tech-box">
+            <i class="devicon-javascript-plain colored"></i>
+            <span>JavaScript</span>
+          </div>
+
+          <div class="tech-box">
+            <i class="devicon-nodejs-plain colored"></i>
+            <span>Node.js</span>
+          </div>
+
+          <div class="tech-box">
+            <i class="devicon-postgresql-plain colored"></i>
+            <span>PostgreSQL</span>
+          </div>
+
+          <div class="tech-box">
+            <i class="devicon-git-plain colored"></i>
+            <span>Git</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SOBRE -->
+    <section id="sobre" class="section about-section">
+      <div class="container about-content">
+        <h2 class="section-title">Sobre mim</h2>
+
+        <div class="about-box">
+          <p>
+            Sou estudante de Análise e Desenvolvimento de Sistemas e estou
+            evoluindo meus conhecimentos em desenvolvimento web, buscando
+            crescer como desenvolvedor e construir projetos cada vez mais
+            profissionais.
+          </p>
+
+          <p>
+            Tenho interesse em front-end, back-end, design de interfaces
+            e também em transformar ideias em soluções reais.
+          </p>
+        </div>
+      </div>
     </section>
   </main>
 
-  <footer>
-    <p>© 2026 Miguel Tobias Vaz Furtado</p>
-  </footer>
-
+  <script src="script.js"></script>
 </body>
 </html>
