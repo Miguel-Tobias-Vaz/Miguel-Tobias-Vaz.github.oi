@@ -2,42 +2,62 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>Portfólio - Miguel Tobias</title>
   <link rel="stylesheet" href="main.css" />
 
-  <!-- Ícones -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
 </head>
 <body>
   <header class="topbar">
-    <div class="logo-circle"></div>
+    <a href="#home" class="logo-link" aria-label="Início">
+      <span class="logo-circle" aria-hidden="true"></span>
+    </a>
 
-    <nav class="menu">
+    <button
+      type="button"
+      class="menu-toggle"
+      aria-expanded="false"
+      aria-controls="main-menu"
+      aria-label="Abrir menu de navegação"
+    >
+      <span class="menu-toggle-bar" aria-hidden="true"></span>
+      <span class="menu-toggle-bar" aria-hidden="true"></span>
+      <span class="menu-toggle-bar" aria-hidden="true"></span>
+    </button>
+
+    <div
+      class="menu-backdrop"
+      aria-hidden="true"
+      hidden
+    ></div>
+
+    <nav id="main-menu" class="menu" aria-label="Navegação principal">
       <a href="#home" class="active">Home</a>
       <a href="#projetos">Projetos</a>
-      <a href="#contato">Contato</a>
       <a href="#tecnologias">Tecnologias</a>
+      <a href="#contato">Contato</a>
       <a href="#sobre">Sobre mim</a>
     </nav>
   </header>
 
   <main>
-    <!-- HOME -->
     <section id="home" class="section home-section">
       <div class="container hero">
         <div class="hero-text">
           <h1>Miguel Tobias Vaz Furtado</h1>
-          <h2>Desenvolvedor Junior</h2>
+          <h2>Desenvolvedor júnior</h2>
 
           <p>
-            Aqui você pode colocar sua apresentação. Fale quem você é,
-            o que estuda, seus objetivos e em que tipo de projeto deseja atuar.
+            Estudante de Análise e Desenvolvimento de Sistemas, focado em
+            desenvolvimento web e em construir interfaces claras e código
+            organizado. Busco oportunidades para aprender em projetos reais e
+            crescer em time.
           </p>
 
           <div class="hero-buttons">
-            <a href="#contato" class="btn">Contato</a>
-            <a href="#projetos" class="btn">Projetos</a>
+            <a href="#contato" class="btn btn-primary">Contato</a>
+            <a href="#projetos" class="btn btn-outline">Projetos</a>
           </div>
         </div>
 
@@ -47,12 +67,10 @@
               <i class="devicon-javascript-plain"></i>
               JavaScript
             </span>
-
             <span class="badge html">
               <i class="devicon-html5-plain"></i>
               HTML
             </span>
-
             <span class="badge css">
               <i class="devicon-css3-plain"></i>
               CSS
@@ -62,84 +80,99 @@
       </div>
     </section>
 
-    <!-- PROJETOS -->
     <section id="projetos" class="section projects-section">
       <div class="container">
-        <h2 class="section-title">Projetos</h2>
+        <h2 class="section-title">Projetos principais</h2>
 
         <div class="projects-grid">
           <article class="project-card">
-            <div class="project-thumb"></div>
-
+            <div class="project-thumb" role="img" aria-label="Prévia do projeto Opto-Review"></div>
             <div class="project-content">
-              <h3>Projeto: Opto-Review</h3>
-              <p class="desc-title">Descrição:</p>
+              <h3>Opto-Review</h3>
+              <p class="desc-title">Descrição</p>
               <p>
-                Sistema voltado para organização, análise e exibição de
-                informações de forma prática e objetiva.
+                Sistema para organização, análise e exibição de informações de
+                forma objetiva, com foco em usabilidade.
               </p>
-
-              <div class="mini-tags">
-                <span class="mini-badge html-mini">
-                  <i class="devicon-html5-plain"></i> HTML
-                </span>
+              <div class="project-footer">
+                <div class="mini-tags">
+                  <span class="mini-badge html-mini">
+                    <i class="devicon-html5-plain"></i> HTML
+                  </span>
+                  <span class="mini-badge css-mini">
+                    <i class="devicon-css3-plain"></i> CSS
+                  </span>
+                </div>
+                <a class="btn-github" href="https://github.com/" target="_blank" rel="noopener noreferrer">GitHub</a>
               </div>
             </div>
           </article>
 
           <article class="project-card">
-            <div class="project-thumb"></div>
-
+            <div class="project-thumb" role="img" aria-label="Prévia do projeto API REST"></div>
             <div class="project-content">
-              <h3>Projeto: Opto-Review</h3>
-              <p class="desc-title">Descrição:</p>
+              <h3>API REST com Node.js</h3>
+              <p class="desc-title">Descrição</p>
               <p>
-                Projeto com foco em interface, organização de conteúdo e
-                experiência visual do usuário.
+                Backend com rotas CRUD, validação de dados e integração com
+                PostgreSQL; estrutura preparada para escalar.
               </p>
-
-              <div class="mini-tags">
-                <span class="mini-badge html-mini">
-                  <i class="devicon-html5-plain"></i> HTML
-                </span>
+              <div class="project-footer">
+                <div class="mini-tags">
+                  <span class="mini-badge node-mini">
+                    <i class="devicon-nodejs-plain"></i> Node.js
+                  </span>
+                  <span class="mini-badge pg-mini">
+                    <i class="devicon-postgresql-plain"></i> PostgreSQL
+                  </span>
+                </div>
+                <a class="btn-github" href="https://github.com/" target="_blank" rel="noopener noreferrer">GitHub</a>
               </div>
             </div>
           </article>
 
           <article class="project-card">
-            <div class="project-thumb"></div>
-
+            <div class="project-thumb" role="img" aria-label="Prévia do painel administrativo"></div>
             <div class="project-content">
-              <h3>Projeto: Opto-Review</h3>
-              <p class="desc-title">Descrição:</p>
+              <h3>Painel administrativo</h3>
+              <p class="desc-title">Descrição</p>
               <p>
-                Estrutura pensada para apresentar projeto, descrição e stack
-                utilizada de forma limpa.
+                Interface para gestão de conteúdo com layout responsivo,
+                componentes reutilizáveis e feedback visual para o usuário.
               </p>
-
-              <div class="mini-tags">
-                <span class="mini-badge html-mini">
-                  <i class="devicon-html5-plain"></i> HTML
-                </span>
+              <div class="project-footer">
+                <div class="mini-tags">
+                  <span class="mini-badge js-mini">
+                    <i class="devicon-javascript-plain"></i> JavaScript
+                  </span>
+                  <span class="mini-badge html-mini">
+                    <i class="devicon-html5-plain"></i> HTML
+                  </span>
+                </div>
+                <a class="btn-github" href="https://github.com/" target="_blank" rel="noopener noreferrer">GitHub</a>
               </div>
             </div>
           </article>
 
           <article class="project-card">
-            <div class="project-thumb"></div>
-
+            <div class="project-thumb" role="img" aria-label="Prévia do portfólio"></div>
             <div class="project-content">
-              <h3>Projeto: Opto-Review</h3>
-              <p class="desc-title">Descrição:</p>
+              <h3>Portfólio pessoal</h3>
+              <p class="desc-title">Descrição</p>
               <p>
-                Card de projeto pronto para você depois substituir por imagem,
-                link, GitHub e tecnologias.
+                Site estático com seções de projetos, tecnologias e contato;
+                código simples para hospedar em GitHub Pages ou similar.
               </p>
-
-              <div class="mini-tags">
-                <span class="mini-badge html-mini">
-                  <i class="devicon-html5-plain"></i> HTML
-                </span>
+              <div class="project-footer">
+                <div class="mini-tags">
+                  <span class="mini-badge css-mini">
+                    <i class="devicon-css3-plain"></i> CSS
+                  </span>
+                  <span class="mini-badge html-mini">
+                    <i class="devicon-html5-plain"></i> HTML
+                  </span>
+                </div>
+                <a class="btn-github" href="https://github.com/" target="_blank" rel="noopener noreferrer">GitHub</a>
               </div>
             </div>
           </article>
@@ -147,60 +180,74 @@
       </div>
     </section>
 
-    <!-- CONTATO -->
+    <section id="tecnologias" class="section tech-section">
+      <div class="container">
+        <h2 class="section-title">Tecnologias</h2>
+
+        <div class="tech-categories">
+          <div class="tech-category">
+            <h3 class="tech-category-title">Linguagens de programação</h3>
+            <ul class="tech-list">
+              <li>Java</li>
+              <li>JavaScript</li>
+              <li>Python</li>
+            </ul>
+          </div>
+          <div class="tech-category">
+            <h3 class="tech-category-title">Fundamentos</h3>
+            <ul class="tech-list">
+              <li>Lógica de programação</li>
+              <li>Estruturas de dados</li>
+              <li>Programação orientada a objetos</li>
+              <li>Manipulação de dados</li>
+              <li>Redes (conceitos básicos)</li>
+            </ul>
+          </div>
+          <div class="tech-category">
+            <h3 class="tech-category-title">Tecnologias e ferramentas</h3>
+            <ul class="tech-list">
+              <li>HTML5 / CSS3</li>
+              <li>Node.js</li>
+              <li>PostgreSQL</li>
+              <li>Git / GitHub</li>
+            </ul>
+          </div>
+          <div class="tech-category">
+            <h3 class="tech-category-title">Metodologias</h3>
+            <ul class="tech-list">
+              <li>Scrum</li>
+              <li>Kanban</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section id="contato" class="section contact-section">
       <div class="container contact-content">
         <h2 class="section-title">Contato</h2>
 
         <div class="contact-box">
-          <p><strong>Email:</strong> seuemail@exemplo.com</p>
-          <p><strong>LinkedIn:</strong> linkedin.com/in/seu-link</p>
-          <p><strong>GitHub:</strong> github.com/seuusuario</p>
-          <p><strong>WhatsApp:</strong> (91) 00000-0000</p>
+          <p>
+            <strong>Email:</strong>
+            <a href="mailto:seuemail@exemplo.com">seuemail@exemplo.com</a>
+          </p>
+          <p>
+            <strong>LinkedIn:</strong>
+            <a href="https://linkedin.com/in/seu-link" target="_blank" rel="noopener noreferrer">linkedin.com/in/seu-link</a>
+          </p>
+          <p>
+            <strong>GitHub:</strong>
+            <a href="https://github.com/seuusuario" target="_blank" rel="noopener noreferrer">github.com/seuusuario</a>
+          </p>
+          <p>
+            <strong>WhatsApp:</strong>
+            <a href="https://wa.me/5591000000000" target="_blank" rel="noopener noreferrer">(91) 00000-0000</a>
+          </p>
         </div>
       </div>
     </section>
 
-    <!-- TECNOLOGIAS -->
-    <section id="tecnologias" class="section tech-section">
-      <div class="container">
-        <h2 class="section-title">Tecnologias</h2>
-
-        <div class="tech-grid">
-          <div class="tech-box">
-            <i class="devicon-html5-plain colored"></i>
-            <span>HTML</span>
-          </div>
-
-          <div class="tech-box">
-            <i class="devicon-css3-plain colored"></i>
-            <span>CSS</span>
-          </div>
-
-          <div class="tech-box">
-            <i class="devicon-javascript-plain colored"></i>
-            <span>JavaScript</span>
-          </div>
-
-          <div class="tech-box">
-            <i class="devicon-nodejs-plain colored"></i>
-            <span>Node.js</span>
-          </div>
-
-          <div class="tech-box">
-            <i class="devicon-postgresql-plain colored"></i>
-            <span>PostgreSQL</span>
-          </div>
-
-          <div class="tech-box">
-            <i class="devicon-git-plain colored"></i>
-            <span>Git</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- SOBRE -->
     <section id="sobre" class="section about-section">
       <div class="container about-content">
         <h2 class="section-title">Sobre mim</h2>
@@ -212,16 +259,19 @@
             crescer como desenvolvedor e construir projetos cada vez mais
             profissionais.
           </p>
-
           <p>
-            Tenho interesse em front-end, back-end, design de interfaces
-            e também em transformar ideias em soluções reais.
+            Tenho interesse em front-end, back-end, design de interfaces e
+            também em transformar ideias em soluções reais.
           </p>
         </div>
       </div>
     </section>
   </main>
 
-  <script src="script.js"></script>
+  <footer class="site-footer">
+    <p>Portfólio — Miguel Tobias · 2026</p>
+  </footer>
+
+  <script src="main.js"></script>
 </body>
 </html>
