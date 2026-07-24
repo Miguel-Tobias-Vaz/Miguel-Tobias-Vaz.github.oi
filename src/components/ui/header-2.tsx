@@ -161,7 +161,7 @@ export function Header2({
     }
 
     moveIndicatorToHref(activeLinkHref || activeHref || links[0]?.href || "");
-  }, [activeHref, activeLinkHref, links, moveIndicatorToHref]);
+  }, [activeHref, activeLinkHref, links, moveIndicatorTo, moveIndicatorToHref]);
 
   React.useLayoutEffect(() => {
     moveIndicatorToHref(activeLinkHref);

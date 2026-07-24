@@ -3,7 +3,17 @@ import { cookies } from "next/headers";
 export const AUTH_COOKIE = "portfolio_admin_session";
 
 export function getAdminPassword(): string {
-  return process.env.ADMIN_PASSWORD ?? "admin123";
+  const password = process.env.ADMIN_PASSWORD?.trim();
+
+  if (password) {
+    return password;
+  }
+
+  if (process.env.NODE_ENV === "production") {
+    throw new Error("ADMIN_PASSWORD não configurada.");
+  }
+
+  return "admin123";
 }
 
 export function verifyPassword(password: string): boolean {
