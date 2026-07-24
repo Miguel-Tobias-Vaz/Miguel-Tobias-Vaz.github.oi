@@ -1,0 +1,58 @@
+{
+  "projects": [
+    {
+      "id": "opto-review",
+      "title": "Opto-Review",
+      "description": "Sistema para organização, análise e exibição de informações de forma objetiva, com foco em usabilidade.",
+      "image": "/Imagens/projeto_opto.png",
+      "imageAlt": "Captura de ecrã da landing page do Opto Review",
+      "tags": [
+        { "className": "html-mini", "icon": "devicon-html5-plain", "label": "HTML" },
+        { "className": "css-mini", "icon": "devicon-css3-plain", "label": "CSS" }
+      ],
+      "link": "https://optoreview.com.br/",
+      "linkLabel": "Ver Projeto",
+      "order": 0,
+      "featured": true
+    },
+    {
+      "id": "api-node",
+      "title": "API REST com Node.js",
+      "description": "Backend com rotas CRUD, validação de dados e integração com PostgreSQL; estrutura preparada para escalar.",
+      "tags": [
+        { "className": "node-mini", "icon": "devicon-nodejs-plain", "label": "Node.js" },
+        { "className": "pg-mini", "icon": "devicon-postgresql-plain", "label": "PostgreSQL" }
+      ],
+      "link": "https://github.com/",
+      "linkLabel": "GitHub",
+      "order": 1,
+      "featured": false
+    },
+    {
+      "id": "painel-admin",
+      "title": "Painel administrativo",
+      "description": "Interface para gestão de conteúdo com layout responsivo, componentes reutilizáveis e feedback visual para o usuário.",
+      "tags": [
+        { "className": "js-mini", "icon": "devicon-javascript-plain", "label": "JavaScript" },
+        { "className": "html-mini", "icon": "devicon-html5-plain", "label": "HTML" }
+      ],
+      "link": "https://github.com/",
+      "linkLabel": "GitHub",
+      "order": 2,
+      "featured": false
+    },
+    {
+      "id": "portifolio",
+      "title": "Portfólio pessoal",
+      "description": "Site com Next.js, TypeScript e Starfield em Canvas; animações fluidas e experiência imersiva.",
+      "tags": [
+        { "className": "css-mini", "icon": "devicon-css3-plain", "label": "CSS" },
+        { "className": "react-mini", "icon": "devicon-react-original", "label": "React" }
+      ],
+      "link": "https://github.com/Miguel-Tobias-Vaz",
+      "linkLabel": "GitHub",
+      "order": 3,
+      "featured": true
+    }
+  ]
+}
