@@ -7,8 +7,16 @@
       "image": "/Imagens/projeto_opto.png",
       "imageAlt": "Captura de ecrã da landing page do Opto Review",
       "tags": [
-        { "className": "html-mini", "icon": "devicon-html5-plain", "label": "HTML" },
-        { "className": "css-mini", "icon": "devicon-css3-plain", "label": "CSS" }
+        {
+          "className": "html-mini",
+          "icon": "devicon-html5-plain",
+          "label": "HTML"
+        },
+        {
+          "className": "css-mini",
+          "icon": "devicon-css3-plain",
+          "label": "CSS"
+        }
       ],
       "link": "https://optoreview.com.br/",
       "linkLabel": "Ver Projeto",
@@ -20,8 +28,16 @@
       "title": "API REST com Node.js",
       "description": "Backend com rotas CRUD, validação de dados e integração com PostgreSQL; estrutura preparada para escalar.",
       "tags": [
-        { "className": "node-mini", "icon": "devicon-nodejs-plain", "label": "Node.js" },
-        { "className": "pg-mini", "icon": "devicon-postgresql-plain", "label": "PostgreSQL" }
+        {
+          "className": "node-mini",
+          "icon": "devicon-nodejs-plain",
+          "label": "Node.js"
+        },
+        {
+          "className": "pg-mini",
+          "icon": "devicon-postgresql-plain",
+          "label": "PostgreSQL"
+        }
       ],
       "link": "https://github.com/",
       "linkLabel": "GitHub",
@@ -33,8 +49,16 @@
       "title": "Painel administrativo",
       "description": "Interface para gestão de conteúdo com layout responsivo, componentes reutilizáveis e feedback visual para o usuário.",
       "tags": [
-        { "className": "js-mini", "icon": "devicon-javascript-plain", "label": "JavaScript" },
-        { "className": "html-mini", "icon": "devicon-html5-plain", "label": "HTML" }
+        {
+          "className": "js-mini",
+          "icon": "devicon-javascript-plain",
+          "label": "JavaScript"
+        },
+        {
+          "className": "html-mini",
+          "icon": "devicon-html5-plain",
+          "label": "HTML"
+        }
       ],
       "link": "https://github.com/",
       "linkLabel": "GitHub",
@@ -46,12 +70,32 @@
       "title": "Portfólio pessoal",
       "description": "Site com Next.js, TypeScript e Starfield em Canvas; animações fluidas e experiência imersiva.",
       "tags": [
-        { "className": "css-mini", "icon": "devicon-css3-plain", "label": "CSS" },
-        { "className": "react-mini", "icon": "devicon-react-original", "label": "React" }
+        {
+          "className": "css-mini",
+          "icon": "devicon-css3-plain",
+          "label": "CSS"
+        },
+        {
+          "className": "react-mini",
+          "icon": "devicon-react-original",
+          "label": "React"
+        }
       ],
       "link": "https://github.com/Miguel-Tobias-Vaz",
       "linkLabel": "GitHub",
       "order": 3,
+      "featured": true
+    },
+    {
+      "id": "opto-automacoes",
+      "title": "Opto - Automações",
+      "description": "Programa que faz xxxxzz",
+      "image": "https://drive.google.com/file/d/1shg7yKgOvGM4VdaVvze25w5LDVll94JM/view?usp=sharing",
+      "imageAlt": "Captura de ecrã da landing page Opto Automações",
+      "tags": [],
+      "link": "https://github.com/Miguel-Tobias-Vaz",
+      "linkLabel": "Ver Projeto",
+      "order": 1,
       "featured": true
     }
   ]

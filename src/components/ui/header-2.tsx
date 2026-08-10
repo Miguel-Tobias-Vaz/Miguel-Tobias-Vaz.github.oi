@@ -7,6 +7,7 @@ import { Button, buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { MenuToggleIcon } from "@/components/ui/menu-toggle-icon";
 import { useScroll } from "@/components/ui/use-scroll";
+import { ThemeToggle } from "@/components/theme/theme-toggle";
 
 export interface Header2Link {
   label: string;
@@ -55,9 +56,9 @@ function NavLink({
 }) {
   const classes = cn(
     buttonVariants({ variant: "ghost", size: "sm" }),
-    "relative z-[1] h-9 shrink-0 whitespace-nowrap px-4 text-sm text-foreground/90 hover:text-primary",
-    (active || undefined) && "text-primary",
-    "[&.active]:text-primary",
+    "relative z-[1] h-9 shrink-0 whitespace-nowrap px-4 text-sm uppercase tracking-[0.08em] text-foreground/80 hover:text-foreground",
+    (active || undefined) && "text-foreground",
+    "[&.active]:text-foreground",
     className
   );
 
@@ -80,6 +81,22 @@ function NavLink({
         data-nav-href={href}
         target="_blank"
         rel="noopener noreferrer"
+        onClick={handleClick}
+      >
+        {label}
+      </a>
+    );
+  }
+
+  // Âncoras na mesma página: <a> nativo evita o scroll do Next/Link brigar com o Lenis.
+  if (href.startsWith("#")) {
+    return (
+      <a
+        ref={setRef}
+        href={href}
+        className={classes}
+        data-portfolio-nav-link
+        data-nav-href={href}
         onClick={handleClick}
       >
         {label}
@@ -283,11 +300,11 @@ export function Header2({
           />
         </Link>
 
-        <div className="hidden shrink-0 items-center md:flex">
+        <div className="hidden shrink-0 items-center gap-2 md:flex">
           <div ref={navListRef} className="relative flex items-center gap-1.5">
             <span
               aria-hidden="true"
-              className="pointer-events-none absolute top-1/2 h-9 -translate-y-1/2 rounded-md border border-primary/40 bg-primary/10 shadow-[0_0_30px_rgba(61,80,144,0.08)] transition-[left,width,opacity] duration-300 ease-out"
+              className="pointer-events-none absolute top-1/2 h-9 -translate-y-1/2 rounded-full border border-foreground/25 bg-foreground/5 transition-[left,width,opacity] duration-300 ease-out"
               style={{
                 left: indicator.left,
                 width: indicator.width,
@@ -314,19 +331,23 @@ export function Header2({
               <Link href={ctaHref}>{ctaLabel}</Link>
             </Button>
           ) : null}
+          <ThemeToggle className="relative z-[1]" />
         </div>
 
-        <Button
-          size="icon"
-          variant="outline"
-          onClick={() => setOpen(!open)}
-          className="relative z-[1] border-border md:hidden"
-          aria-expanded={open}
-          aria-controls="portfolio-mobile-menu"
-          aria-label={open ? "Fechar menu" : "Abrir menu"}
-        >
-          <MenuToggleIcon open={open} className="size-5" duration={300} />
-        </Button>
+        <div className="flex items-center gap-2 md:hidden">
+          <ThemeToggle />
+          <Button
+            size="icon"
+            variant="outline"
+            onClick={() => setOpen(!open)}
+            className="relative z-[1] border-border"
+            aria-expanded={open}
+            aria-controls="portfolio-mobile-menu"
+            aria-label={open ? "Fechar menu" : "Abrir menu"}
+          >
+            <MenuToggleIcon open={open} className="size-5" duration={300} />
+          </Button>
+        </div>
       </nav>
 
       <div

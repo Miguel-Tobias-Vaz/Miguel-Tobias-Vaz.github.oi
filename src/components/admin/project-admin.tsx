@@ -5,6 +5,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import type { Project, ProjectTag } from "@/types/project";
 import { TAG_PRESETS } from "@/types/project";
+import { AdminNav } from "./admin-nav";
 
 const emptyForm = {
   title: "",
@@ -134,6 +135,7 @@ export function ProjectAdmin({ initialProjects }: ProjectAdminProps) {
         <div>
           <h1>Gerenciar projetos</h1>
           <p>Cadastre, edite ou remova projetos do seu portfólio.</p>
+          <AdminNav active="projetos" />
         </div>
         <div className="admin-header-actions">
           <Link href="/" className="admin-btn admin-btn-outline">
@@ -187,7 +189,7 @@ export function ProjectAdmin({ initialProjects }: ProjectAdminProps) {
               className="admin-input"
               value={form.image}
               onChange={(e) => setForm({ ...form, image: e.target.value })}
-              placeholder="/Imagens/meu-projeto.png"
+              placeholder="Cole o link do Google Drive ou /Imagens/arquivo.png"
             />
           </label>
 

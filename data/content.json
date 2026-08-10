@@ -1,0 +1,159 @@
+{
+  "meta": {
+    "siteTitle": "Portfólio — Miguel Tobias",
+    "siteDescription": "Portfólio de Miguel Tobias Vaz Furtado — Desenvolvedor júnior",
+    "projectsPageTitle": "Projetos — Miguel Tobias",
+    "projectsPageDescription": "Todos os projetos de Miguel Tobias Vaz Furtado — desenvolvimento web e software."
+  },
+  "nav": {
+    "home": "Home",
+    "projects": "Projetos",
+    "tech": "Tecnologias",
+    "contact": "Contato",
+    "about": "Sobre mim"
+  },
+  "hero": {
+    "eyebrow": "Portfólio · 2026",
+    "name": "Miguel Tobias Vaz Furtado",
+    "role": "Desenvolvedor & Analista",
+    "bio": "Estudante de Análise e Desenvolvimento de Sistemas, focado em desenvolvimento web e em construir interfaces claras e código organizado. Busco oportunidades para aprender em projetos reais e crescer em time.",
+    "primaryCta": "Contato",
+    "secondaryCta": "Projetos",
+    "badges": [
+      "React",
+      "Next.js",
+      "TypeScript",
+      "Tailwind"
+    ]
+  },
+  "projectsSection": {
+    "title": "Projetos",
+    "viewAllLabel": "Ver todos os projetos"
+  },
+  "tech": {
+    "title": "Tecnologias",
+    "intro": "Stack focada em interfaces modernas: React e Next.js com TypeScript e Tailwind CSS, componentes com shadcn/ui, motion com GSAP e Framer Motion, e experiências visuais com Three.js, WebGL e GLSL.",
+    "stats": [
+      {
+        "label": "Projetos",
+        "value": 4,
+        "suffix": "+"
+      },
+      {
+        "label": "Tecnologias",
+        "value": 13
+      },
+      {
+        "label": "Motion libs",
+        "value": 2
+      },
+      {
+        "label": "WebGL & 3D",
+        "value": 4
+      }
+    ],
+    "categories": [
+      {
+        "highlight": true,
+        "title": "Frontend & framework",
+        "items": [
+          "Next.js",
+          "React",
+          "TypeScript",
+          "Tailwind CSS",
+          "shadcn/ui"
+        ]
+      },
+      {
+        "title": "Animação & motion",
+        "items": [
+          "Motion (Framer Motion)",
+          "GSAP"
+        ]
+      },
+      {
+        "title": "3D, canvas & WebGL",
+        "items": [
+          "Three.js / React Three Fiber",
+          "Canvas API",
+          "WebGL",
+          "Shaders (GLSL)"
+        ]
+      },
+      {
+        "title": "Visual & estilo",
+        "items": [
+          "SVG",
+          "CSS"
+        ]
+      }
+    ],
+    "trailTitle": "Stack em camadas",
+    "trail": [
+      {
+        "label": "CSS",
+        "status": "done"
+      },
+      {
+        "label": "SVG",
+        "status": "done"
+      },
+      {
+        "label": "GSAP",
+        "status": "done"
+      },
+      {
+        "label": "Motion · Canvas · WebGL",
+        "status": "current"
+      },
+      {
+        "label": "Three.js · R3F · GLSL",
+        "status": ""
+      },
+      {
+        "label": "React · TypeScript",
+        "status": ""
+      },
+      {
+        "label": "Tailwind · shadcn/ui",
+        "status": ""
+      },
+      {
+        "label": "Next.js",
+        "status": ""
+      }
+    ]
+  },
+  "contact": {
+    "title": "Contato",
+    "emailLabel": "Email",
+    "email": "tobiasmiguel007@gmail.com",
+    "linkedinLabel": "LinkedIn",
+    "linkedinText": "linkedin.com/in/miguel-tobias-vaz",
+    "linkedinUrl": "https://www.linkedin.com/in/miguel-tobias-vaz/",
+    "githubLabel": "GitHub",
+    "githubText": "github.com/Miguel-Tobias-Vaz",
+    "githubUrl": "https://github.com/Miguel-Tobias-Vaz",
+    "whatsappLabel": "WhatsApp",
+    "whatsappText": "(91) 98471-3305",
+    "whatsappUrl": "https://wa.me/5591984713305"
+  },
+  "about": {
+    "title": "Sobre",
+    "paragraphs": [
+      "Desenvolvedor em formação, com foco em desenvolvimento de sistemas, lógica de\nprogramação e automação de processos. Possui conhecimentos em algoritmos,\nestruturas de dados, desenvolvimento web e bancos de dados, com experiência\nprática em Python, Java, SQL, HTML, CSS e JavaScript. Atualmente desenvolve\nprojetos e produtos próprios e soluções de automação aplicadas a processos\nprofissionais, buscando constantemente transformar conhecimentos técnicos em\nsoluções eficientes. Busca oportunidade como Desenvolvedor Júnior para aplicar e\nexpandir sua experiência no desenvolvimento de software."
+    ]
+  },
+  "footer": {
+    "homeText": "Portfólio — Miguel Tobias · 2026 ·",
+    "adminLinkLabel": "Admin",
+    "projectsPageText": "© {year} Miguel Tobias Vaz Furtado"
+  },
+  "projectsPage": {
+    "eyebrow": "Portfólio",
+    "title": "Projetos",
+    "intro": "Uma visão completa do que venho construindo — do frontend à API, com foco em código organizado e experiência de uso.",
+    "empty": "Nenhum projeto cadastrado ainda.",
+    "backLabel": "Voltar ao início"
+  }
+}

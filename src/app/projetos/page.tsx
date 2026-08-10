@@ -1,13 +1,21 @@
 import type { Metadata } from "next";
 import { ProjectsPageContent } from "@/components/portfolio/projects-page-content";
+import { getSiteContent } from "@/lib/content";
 import { getProjects } from "@/lib/projects";
 
-export const metadata: Metadata = {
-  title: "Projetos — Miguel Tobias",
-  description: "Todos os projetos de Miguel Tobias Vaz Furtado — desenvolvimento web e software.",
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const content = await getSiteContent();
+  return {
+    title: content.meta.projectsPageTitle,
+    description: content.meta.projectsPageDescription,
+  };
+}
 
 export default async function ProjetosPage() {
-  const projects = await getProjects();
-  return <ProjectsPageContent projects={projects} />;
+  const [projects, content] = await Promise.all([
+    getProjects(),
+    getSiteContent(),
+  ]);
+
+  return <ProjectsPageContent projects={projects} content={content} />;
 }

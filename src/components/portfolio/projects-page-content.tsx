@@ -1,22 +1,23 @@
 import Link from "next/link";
 import type { Project } from "@/types/project";
+import type { SiteContent } from "@/types/content";
+import { buildProjectsNav, formatFooterYear } from "@/lib/content";
 import { PortfolioChrome } from "./portfolio-chrome";
 import { PortfolioHeader } from "./portfolio-header";
 import { ProjectCard } from "./project-card";
 
-const navItems = [
-  { href: "/#home", label: "Home" },
-  { href: "/projetos", label: "Projetos" },
-  { href: "/#tecnologias", label: "Tecnologias" },
-  { href: "/#contato", label: "Contato" },
-  { href: "/#sobre", label: "Sobre mim" },
-];
-
 interface ProjectsPageContentProps {
   projects: Project[];
+  content: SiteContent;
 }
 
-export function ProjectsPageContent({ projects }: ProjectsPageContentProps) {
+export function ProjectsPageContent({
+  projects,
+  content,
+}: ProjectsPageContentProps) {
+  const navItems = buildProjectsNav(content);
+  const page = content.projectsPage;
+
   return (
     <>
       <PortfolioChrome />
@@ -25,19 +26,14 @@ export function ProjectsPageContent({ projects }: ProjectsPageContentProps) {
       <main className="projects-page">
         <section className="section projects-section projects-page-section">
           <div className="container motion-block">
-            <p className="projects-page-eyebrow motion-in">Portfólio</p>
+            <p className="projects-page-eyebrow motion-in">{page.eyebrow}</p>
             <h1 className="section-title motion-in">
-              Projetos <span className="section-title-dot">•</span>
+              {page.title} <span className="section-title-dot">•</span>
             </h1>
-            <p className="projects-page-intro motion-in">
-              Uma visão completa do que venho construindo — do frontend à API, com foco
-              em código organizado e experiência de uso.
-            </p>
+            <p className="projects-page-intro motion-in">{page.intro}</p>
 
             {projects.length === 0 ? (
-              <p className="projects-page-empty motion-in">
-                Nenhum projeto cadastrado ainda.
-              </p>
+              <p className="projects-page-empty motion-in">{page.empty}</p>
             ) : (
               <div className="projects-grid motion-stagger">
                 {projects.map((project) => (
@@ -48,7 +44,7 @@ export function ProjectsPageContent({ projects }: ProjectsPageContentProps) {
 
             <div className="projects-section-actions motion-in">
               <Link href="/#home" className="btn btn-outline">
-                Voltar ao início
+                {page.backLabel}
               </Link>
             </div>
           </div>
@@ -56,7 +52,7 @@ export function ProjectsPageContent({ projects }: ProjectsPageContentProps) {
       </main>
 
       <footer className="site-footer">
-        <p>© {new Date().getFullYear()} Miguel Tobias Vaz Furtado</p>
+        <p>{formatFooterYear(content.footer.projectsPageText)}</p>
       </footer>
     </>
   );

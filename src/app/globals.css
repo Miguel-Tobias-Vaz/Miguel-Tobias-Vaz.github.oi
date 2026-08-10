@@ -2,29 +2,55 @@
 
 @custom-variant dark (&:is(.dark *));
 
-:root {
-  --background: #0b0f14;
-  --foreground: #f4f6f8;
-  --card: #141a22;
-  --card-foreground: #f4f6f8;
-  --popover: #141a22;
-  --popover-foreground: #f4f6f8;
-  --primary: #3d5090;
-  --primary-foreground: #f4f6f8;
-  --secondary: #141a22;
-  --secondary-foreground: #f4f6f8;
-  --muted: #141a22;
-  --muted-foreground: #a6afb8;
-  --accent: #141a22;
-  --accent-foreground: #f4f6f8;
-  --destructive: #7f1d1d;
-  --destructive-foreground: #f4f6f8;
-  --border: #1f2a37;
-  --input: #1f2a37;
-  --ring: #3d5090;
-  --radius: 0.625rem;
-  --accent-blue: #3d5090;
-  --text-soft: #a6afb8;
+/* Padrão: modo noturno */
+:root,
+html.dark {
+  --background: #0b0b0b;
+  --foreground: #f2f2f0;
+  --card: #141414;
+  --card-foreground: #f2f2f0;
+  --popover: #141414;
+  --popover-foreground: #f2f2f0;
+  --primary: #f2f2f0;
+  --primary-foreground: #0b0b0b;
+  --secondary: #1c1c1c;
+  --secondary-foreground: #f2f2f0;
+  --muted: #1c1c1c;
+  --muted-foreground: #a3a3a3;
+  --accent: #1c1c1c;
+  --accent-foreground: #f2f2f0;
+  --destructive: #a3a3a3;
+  --destructive-foreground: #0b0b0b;
+  --border: #2a2a2a;
+  --input: #2a2a2a;
+  --ring: #f2f2f0;
+  --radius: 0.75rem;
+  --accent-blue: #f2f2f0;
+  --text-soft: #a3a3a3;
+}
+
+html.light {
+  --background: #f6f6f4;
+  --foreground: #111111;
+  --card: #ffffff;
+  --card-foreground: #111111;
+  --popover: #ffffff;
+  --popover-foreground: #111111;
+  --primary: #111111;
+  --primary-foreground: #f6f6f4;
+  --secondary: #ecece9;
+  --secondary-foreground: #111111;
+  --muted: #ecece9;
+  --muted-foreground: #5c5c5c;
+  --accent: #ecece9;
+  --accent-foreground: #111111;
+  --destructive: #3a3a3a;
+  --destructive-foreground: #f6f6f4;
+  --border: #cfcfc9;
+  --input: #cfcfc9;
+  --ring: #111111;
+  --accent-blue: #111111;
+  --text-soft: #5c5c5c;
 }
 
 @theme inline {
@@ -47,18 +73,18 @@
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-lg: var(--radius);
+  --radius-sm: calc(var(--radius) - 2px);
+  --radius-md: var(--radius);
+  --radius-lg: calc(var(--radius) + 2px);
   --radius-xl: calc(var(--radius) + 4px);
   --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-mono: var(--font-geist-sans);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-geist-sans), system-ui, sans-serif;
+  font-family: var(--font-geist-sans), "IBM Plex Sans", system-ui, sans-serif;
 }
 
 @media (prefers-reduced-motion: reduce) {

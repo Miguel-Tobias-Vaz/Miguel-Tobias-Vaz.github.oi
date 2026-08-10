@@ -1,5 +1,9 @@
+"use client";
+
+import { useState } from "react";
 import Image from "next/image";
 import type { Project } from "@/types/project";
+import { isRemoteImage, resolveProjectImageSrc } from "@/lib/image-src";
 
 interface ProjectCardProps {
   project: Project;
@@ -7,20 +11,31 @@ interface ProjectCardProps {
 }
 
 export function ProjectCard({ project, className }: ProjectCardProps) {
-  const cardClass = ["project-card", "tilt-card", "motion-in", className]
+  const cardClass = ["project-card", "motion-in", className]
     .filter(Boolean)
     .join(" ");
+
+  const resolvedSrc = project.image
+    ? resolveProjectImageSrc(project.image)
+    : undefined;
+  const [failed, setFailed] = useState(false);
+  const showImage = Boolean(resolvedSrc) && !failed;
 
   return (
     <article key={project.id} className={cardClass}>
       <div className="project-thumb">
-        {project.image ? (
+        {showImage && resolvedSrc ? (
           <Image
             className="project-thumb-img"
-            src={project.image}
+            src={resolvedSrc}
             alt={project.imageAlt ?? project.title}
-            width={120}
-            height={120}
+            width={336}
+            height={336}
+            unoptimized={
+              isRemoteImage(resolvedSrc) ||
+              resolvedSrc.startsWith("/api/drive-image/")
+            }
+            onError={() => setFailed(true)}
           />
         ) : (
           <div
