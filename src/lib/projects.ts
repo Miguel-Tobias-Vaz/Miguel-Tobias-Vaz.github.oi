@@ -1,6 +1,10 @@
 import { promises as fs } from "fs";
 import path from "path";
-import type { Project, ProjectInput } from "@/types/project";
+import {
+  normalizeProjectImages,
+  type Project,
+  type ProjectInput,
+} from "@/types/project";
 
 const DATA_PATH = path.join(process.cwd(), "data", "projects.json");
 
@@ -56,11 +60,15 @@ export async function createProject(input: ProjectInput): Promise<Project> {
       ? Math.max(...data.projects.map((p) => p.order)) + 1
       : 0);
 
+  const gallery = normalizeProjectImages(
+    input.images ?? (input.image ? [input.image] : undefined)
+  );
+
   const project: Project = {
     id,
     title: input.title.trim(),
     description: input.description.trim(),
-    image: input.image?.trim() || undefined,
+    ...gallery,
     imageAlt: input.imageAlt?.trim() || undefined,
     tags: input.tags,
     link: input.link.trim(),
@@ -83,13 +91,30 @@ export async function updateProject(
   if (index === -1) return null;
 
   const current = data.projects[index];
+
+  let gallery: { image?: string; images?: string[] } = {
+    image: current.image,
+    images: current.images,
+  };
+  if (input.images !== undefined) {
+    gallery = normalizeProjectImages(input.images);
+  } else if (input.image !== undefined) {
+    const rest = (current.images ?? []).filter(
+      (u) => u.trim() && u.trim() !== current.image?.trim()
+    );
+    gallery = normalizeProjectImages(
+      input.image.trim() ? [input.image, ...rest] : rest
+    );
+  }
+
   const updated: Project = {
     ...current,
     ...input,
     id: current.id,
     title: input.title?.trim() ?? current.title,
     description: input.description?.trim() ?? current.description,
-    image: input.image !== undefined ? input.image.trim() || undefined : current.image,
+    image: gallery.image,
+    images: gallery.images,
     imageAlt:
       input.imageAlt !== undefined
         ? input.imageAlt.trim() || undefined

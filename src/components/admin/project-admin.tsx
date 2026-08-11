@@ -3,14 +3,14 @@
 import Link from "next/link";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import type { Project, ProjectTag } from "@/types/project";
+import { getProjectGallery, type Project, type ProjectTag } from "@/types/project";
 import { TAG_PRESETS } from "@/types/project";
 import { AdminNav } from "./admin-nav";
 
 const emptyForm = {
   title: "",
   description: "",
-  image: "",
+  images: [""] as string[],
   imageAlt: "",
   link: "",
   linkLabel: "Ver Projeto",
@@ -38,11 +38,12 @@ export function ProjectAdmin({ initialProjects }: ProjectAdminProps) {
   }
 
   function startEdit(project: Project) {
+    const gallery = getProjectGallery(project);
     setEditingId(project.id);
     setForm({
       title: project.title,
       description: project.description,
-      image: project.image ?? "",
+      images: gallery.length > 0 ? gallery : [""],
       imageAlt: project.imageAlt ?? "",
       link: project.link,
       linkLabel: project.linkLabel,
@@ -66,10 +67,12 @@ export function ProjectAdmin({ initialProjects }: ProjectAdminProps) {
     setLoading(true);
     setMessage("");
 
+    const images = form.images.map((u) => u.trim()).filter(Boolean);
+
     const payload = {
       title: form.title,
       description: form.description,
-      image: form.image || undefined,
+      images,
       imageAlt: form.imageAlt || undefined,
       link: form.link,
       linkLabel: form.linkLabel,
@@ -183,18 +186,57 @@ export function ProjectAdmin({ initialProjects }: ProjectAdminProps) {
             />
           </label>
 
-          <label className="admin-label">
-            Imagem (caminho ou URL)
-            <input
-              className="admin-input"
-              value={form.image}
-              onChange={(e) => setForm({ ...form, image: e.target.value })}
-              placeholder="Cole o link do Google Drive ou /Imagens/arquivo.png"
-            />
-          </label>
+          <fieldset className="admin-label admin-label-full admin-gallery">
+            <legend>Galeria de fotos</legend>
+            <p className="admin-hint">
+              Cole um link do Google Drive ou caminho por foto. A primeira é a capa do card.
+            </p>
+            <div className="admin-repeat-list">
+              {form.images.map((url, index) => (
+                <div key={index} className="admin-repeat-row admin-gallery-row">
+                  <input
+                    className="admin-input"
+                    value={url}
+                    onChange={(e) => {
+                      const images = [...form.images];
+                      images[index] = e.target.value;
+                      setForm({ ...form, images });
+                    }}
+                    placeholder={
+                      index === 0
+                        ? "Capa — link do Drive ou /Imagens/arquivo.png"
+                        : `Foto ${index + 1}`
+                    }
+                  />
+                  <button
+                    type="button"
+                    className="admin-btn admin-btn-small admin-btn-danger"
+                    disabled={form.images.length <= 1}
+                    onClick={() =>
+                      setForm({
+                        ...form,
+                        images: form.images.filter((_, i) => i !== index),
+                      })
+                    }
+                  >
+                    Remover
+                  </button>
+                </div>
+              ))}
+              <button
+                type="button"
+                className="admin-btn admin-btn-outline admin-btn-small"
+                onClick={() =>
+                  setForm({ ...form, images: [...form.images, ""] })
+                }
+              >
+                + Adicionar foto
+              </button>
+            </div>
+          </fieldset>
 
-          <label className="admin-label">
-            Texto alternativo da imagem
+          <label className="admin-label admin-label-full">
+            Texto alternativo das imagens
             <input
               className="admin-input"
               value={form.imageAlt}
@@ -275,6 +317,8 @@ export function ProjectAdmin({ initialProjects }: ProjectAdminProps) {
                   <span className="admin-list-meta">
                     ordem {project.order}
                     {project.featured ? " · principal" : ""} ·{" "}
+                    {getProjectGallery(project).length} foto
+                    {getProjectGallery(project).length === 1 ? "" : "s"} ·{" "}
                     {project.tags.map((t) => t.label).join(", ") || "sem tags"}
                   </span>
                 </div>
