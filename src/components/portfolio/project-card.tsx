@@ -8,10 +8,29 @@ import { isRemoteImage, resolveProjectImageSrc } from "@/lib/image-src";
 interface ProjectCardProps {
   project: Project;
   className?: string;
+  variant?: "compact" | "showcase";
+  imageSize?: "medium" | "large";
+  showFeaturedBadge?: boolean;
+  featuredBadgeLabel?: string;
 }
 
-export function ProjectCard({ project, className }: ProjectCardProps) {
-  const cardClass = ["project-card", "motion-in", className]
+export function ProjectCard({
+  project,
+  className,
+  variant = "compact",
+  imageSize = "medium",
+  showFeaturedBadge = false,
+  featuredBadgeLabel = "Destaque",
+}: ProjectCardProps) {
+  const isShowcase = variant === "showcase";
+
+  const cardClass = [
+    "project-card",
+    isShowcase ? "project-card--showcase" : "",
+    isShowcase && imageSize === "large" ? "project-card--showcase-large" : "",
+    "motion-in",
+    className,
+  ]
     .filter(Boolean)
     .join(" ");
 
@@ -29,6 +48,22 @@ export function ProjectCard({ project, className }: ProjectCardProps) {
   const showImage = Boolean(currentSrc) && !failed[safeIndex];
   const hasGallery = gallery.length > 1;
 
+  const thumbClass = [
+    "project-thumb",
+    hasGallery ? "has-gallery" : "",
+    isShowcase ? "project-thumb--contain" : "",
+    isShowcase && imageSize === "large" ? "project-thumb--large" : "",
+  ]
+    .filter(Boolean)
+    .join(" ");
+
+  const imgClass = [
+    "project-thumb-img",
+    isShowcase ? "project-thumb-img--contain" : "",
+  ]
+    .filter(Boolean)
+    .join(" ");
+
   function go(delta: number) {
     if (gallery.length < 2) return;
     setIndex((prev) => (prev + delta + gallery.length) % gallery.length);
@@ -36,10 +71,13 @@ export function ProjectCard({ project, className }: ProjectCardProps) {
 
   return (
     <article key={project.id} className={cardClass}>
-      <div className={`project-thumb${hasGallery ? " has-gallery" : ""}`}>
+      <div className={thumbClass}>
+        {showFeaturedBadge ? (
+          <span className="project-featured-badge">{featuredBadgeLabel}</span>
+        ) : null}
         {showImage && currentSrc ? (
           <Image
-            className="project-thumb-img"
+            className={imgClass}
             src={currentSrc}
             alt={
               project.imageAlt

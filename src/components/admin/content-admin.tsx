@@ -8,6 +8,7 @@ import type {
   SiteStat,
   SiteTechCategory,
   SiteTrailItem,
+  SiteCertification,
 } from "@/types/content";
 import { AdminNav } from "./admin-nav";
 
@@ -145,6 +146,7 @@ export function ContentAdmin({ initialContent }: ContentAdminProps) {
                 ["home", "Home"],
                 ["projects", "Projetos"],
                 ["tech", "Tecnologias"],
+                ["certifications", "Certificações"],
                 ["contact", "Contato"],
                 ["about", "Sobre"],
               ] as const
@@ -603,6 +605,158 @@ export function ContentAdmin({ initialContent }: ContentAdminProps) {
               }
             >
               + Item da trilha
+            </button>
+          </div>
+        </section>
+
+        <section className="admin-card">
+          <h2>Certificações</h2>
+          <div className="admin-form">
+            <label className="admin-label">
+              Título da seção
+              <input
+                className="admin-input"
+                value={content.certifications.title}
+                onChange={(e) =>
+                  update("certifications", {
+                    ...content.certifications,
+                    title: e.target.value,
+                  })
+                }
+                required
+              />
+            </label>
+            <label className="admin-label">
+              Introdução
+              <textarea
+                className="admin-input admin-textarea"
+                value={content.certifications.intro}
+                onChange={(e) =>
+                  update("certifications", {
+                    ...content.certifications,
+                    intro: e.target.value,
+                  })
+                }
+                required
+              />
+            </label>
+          </div>
+
+          <h3 className="admin-subheading">Lista de certificações</h3>
+          <div className="admin-repeat-list">
+            {content.certifications.items.map((cert, index) => (
+              <div key={index} className="admin-repeat-block">
+                <div className="admin-repeat-row admin-repeat-row-wrap">
+                  <input
+                    className="admin-input"
+                    placeholder="Nome da certificação"
+                    value={cert.title}
+                    onChange={(e) => {
+                      const items = [...content.certifications.items];
+                      items[index] = { ...cert, title: e.target.value };
+                      update("certifications", {
+                        ...content.certifications,
+                        items,
+                      });
+                    }}
+                    required
+                  />
+                  <input
+                    className="admin-input"
+                    placeholder="Instituição / plataforma"
+                    value={cert.issuer}
+                    onChange={(e) => {
+                      const items = [...content.certifications.items];
+                      items[index] = { ...cert, issuer: e.target.value };
+                      update("certifications", {
+                        ...content.certifications,
+                        items,
+                      });
+                    }}
+                    required
+                  />
+                  <input
+                    className="admin-input admin-input-narrow"
+                    placeholder="Data (ex.: 2024 ou Mar 2025)"
+                    value={cert.date}
+                    onChange={(e) => {
+                      const items = [...content.certifications.items];
+                      items[index] = { ...cert, date: e.target.value };
+                      update("certifications", {
+                        ...content.certifications,
+                        items,
+                      });
+                    }}
+                    required
+                  />
+                </div>
+                <div className="admin-repeat-row admin-repeat-row-wrap">
+                  <input
+                    className="admin-input"
+                    placeholder="URL da credencial (opcional)"
+                    value={cert.link ?? ""}
+                    onChange={(e) => {
+                      const items = [...content.certifications.items];
+                      items[index] = {
+                        ...cert,
+                        link: e.target.value || undefined,
+                      };
+                      update("certifications", {
+                        ...content.certifications,
+                        items,
+                      });
+                    }}
+                  />
+                  <input
+                    className="admin-input admin-input-narrow"
+                    placeholder="Texto do link"
+                    value={cert.linkLabel ?? ""}
+                    onChange={(e) => {
+                      const items = [...content.certifications.items];
+                      items[index] = {
+                        ...cert,
+                        linkLabel: e.target.value || undefined,
+                      };
+                      update("certifications", {
+                        ...content.certifications,
+                        items,
+                      });
+                    }}
+                  />
+                  <button
+                    type="button"
+                    className="admin-btn admin-btn-small admin-btn-danger"
+                    onClick={() =>
+                      update("certifications", {
+                        ...content.certifications,
+                        items: content.certifications.items.filter(
+                          (_, i) => i !== index
+                        ),
+                      })
+                    }
+                  >
+                    Remover
+                  </button>
+                </div>
+              </div>
+            ))}
+            <button
+              type="button"
+              className="admin-btn admin-btn-outline admin-btn-small"
+              onClick={() => {
+                const newCert: SiteCertification = {
+                  title: "",
+                  issuer: "",
+                  date: "",
+                  linkLabel: "Ver credencial",
+                };
+                update("certifications", {
+                  ...content.certifications,
+                  items: [...content.certifications.items, newCert],
+                });
+              }}
+            >
+              + Certificação
             </button>
           </div>
         </section>

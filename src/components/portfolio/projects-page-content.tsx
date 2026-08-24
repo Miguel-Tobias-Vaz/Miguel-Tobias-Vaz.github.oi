@@ -4,7 +4,7 @@ import type { SiteContent } from "@/types/content";
 import { buildProjectsNav, formatFooterYear } from "@/lib/content";
 import { PortfolioChrome } from "./portfolio-chrome";
 import { PortfolioHeader } from "./portfolio-header";
-import { ProjectCard } from "./project-card";
+import { ProjectsGallery } from "./projects-gallery";
 
 interface ProjectsPageContentProps {
   projects: Project[];
@@ -35,11 +35,7 @@ export function ProjectsPageContent({
             {projects.length === 0 ? (
               <p className="projects-page-empty motion-in">{page.empty}</p>
             ) : (
-              <div className="projects-grid motion-stagger">
-                {projects.map((project) => (
-                  <ProjectCard key={project.id} project={project} />
-                ))}
-              </div>
+              <ProjectsGallery projects={projects} page={page} />
             )}
 
             <div className="projects-section-actions motion-in">

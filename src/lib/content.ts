@@ -19,6 +19,7 @@ export function buildHomeNav(content: SiteContent) {
     { href: "#home", label: content.nav.home },
     { href: "/projetos", label: content.nav.projects },
     { href: "#tecnologias", label: content.nav.tech },
+    { href: "#certificacoes", label: content.nav.certifications },
     { href: "#contato", label: content.nav.contact },
     { href: "#sobre", label: content.nav.about },
   ];
@@ -29,6 +30,7 @@ export function buildProjectsNav(content: SiteContent) {
     { href: "/#home", label: content.nav.home },
     { href: "/projetos", label: content.nav.projects },
     { href: "/#tecnologias", label: content.nav.tech },
+    { href: "/#certificacoes", label: content.nav.certifications },
     { href: "/#contato", label: content.nav.contact },
     { href: "/#sobre", label: content.nav.about },
   ];

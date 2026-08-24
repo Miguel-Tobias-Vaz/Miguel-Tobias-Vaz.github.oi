@@ -75,6 +75,14 @@
   background: rgba(0, 0, 0, 0.18);
 }
 
+.admin-repeat-row-wrap {
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+}
+
+.admin-input-narrow {
+  max-width: 220px;
+}
+
 .admin-textarea-tall {
   min-height: 160px;
 }

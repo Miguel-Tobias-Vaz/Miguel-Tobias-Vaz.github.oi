@@ -9,6 +9,7 @@
     "home": "Home",
     "projects": "Projetos",
     "tech": "Tecnologias",
+    "certifications": "Certificações",
     "contact": "Contato",
     "about": "Sobre mim"
   },
@@ -124,6 +125,11 @@
       }
     ]
   },
+  "certifications": {
+    "title": "Certificações",
+    "intro": "Cursos e certificados que reforçam minha formação em desenvolvimento e tecnologia.",
+    "items": []
+  },
   "contact": {
     "title": "Contato",
     "emailLabel": "Email",
@@ -154,6 +160,20 @@
     "title": "Projetos",
     "intro": "Uma visão completa do que venho construindo — do frontend à API, com foco em código organizado e experiência de uso.",
     "empty": "Nenhum projeto cadastrado ainda.",
-    "backLabel": "Voltar ao início"
+    "emptyFiltered": "Nenhum projeto corresponde aos filtros atuais. Tente outra busca ou remova os filtros.",
+    "backLabel": "Voltar ao início",
+    "searchLabel": "Buscar projetos",
+    "searchPlaceholder": "Buscar por nome, descrição ou tecnologia…",
+    "filterAllLabel": "Todos",
+    "filtersLabel": "Filtrar por tecnologia",
+    "noResults": "Nenhum projeto encontrado",
+    "resultsLabel": "{count} projeto(s) exibido(s)",
+    "viewToggleLabel": "Modo de visualização",
+    "viewGridLabel": "Grade",
+    "viewShowcaseLabel": "Destaque",
+    "statsTotalLabel": "Projetos",
+    "statsFeaturedLabel": "Em destaque",
+    "statsTechLabel": "Tecnologias",
+    "featuredBadge": "Destaque"
   }
 }

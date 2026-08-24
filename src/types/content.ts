@@ -20,6 +20,14 @@ export interface SiteTrailItem {
   status?: "done" | "current" | "";
 }
 
+export interface SiteCertification {
+  title: string;
+  issuer: string;
+  date: string;
+  link?: string;
+  linkLabel?: string;
+}
+
 export interface SiteContent {
   meta: {
     siteTitle: string;
@@ -31,6 +39,7 @@ export interface SiteContent {
     home: string;
     projects: string;
     tech: string;
+    certifications: string;
     contact: string;
     about: string;
   };
@@ -54,6 +63,11 @@ export interface SiteContent {
     categories: SiteTechCategory[];
     trailTitle: string;
     trail: SiteTrailItem[];
+  };
+  certifications: {
+    title: string;
+    intro: string;
+    items: SiteCertification[];
   };
   contact: {
     title: string;
@@ -83,6 +97,20 @@ export interface SiteContent {
     title: string;
     intro: string;
     empty: string;
+    emptyFiltered: string;
     backLabel: string;
+    searchLabel: string;
+    searchPlaceholder: string;
+    filterAllLabel: string;
+    filtersLabel: string;
+    noResults: string;
+    resultsLabel: string;
+    viewToggleLabel: string;
+    viewGridLabel: string;
+    viewShowcaseLabel: string;
+    statsTotalLabel: string;
+    statsFeaturedLabel: string;
+    statsTechLabel: string;
+    featuredBadge: string;
   };
 }

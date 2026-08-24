@@ -23,7 +23,7 @@ const BADGE_ICONS: Record<string, string> = {
 
 export function PortfolioContent({ projects, content }: PortfolioContentProps) {
   const navItems = buildHomeNav(content);
-  const { hero, projectsSection, tech, contact, about, footer } = content;
+  const { hero, projectsSection, tech, certifications, contact, about, footer } = content;
 
   return (
     <>
@@ -148,6 +148,49 @@ export function PortfolioContent({ projects, content }: PortfolioContentProps) {
                 ))}
               </ol>
             </div>
+          </div>
+        </section>
+
+        <section id="certificacoes" className="section certifications-section">
+          <div className="container motion-block">
+            <h2 className="section-title motion-in">
+              {certifications.title}{" "}
+              <span className="section-title-dot">•</span>
+            </h2>
+            <p className="certifications-intro motion-in">{certifications.intro}</p>
+
+            {certifications.items.length === 0 ? (
+              <p className="certifications-empty motion-in">
+                Nenhuma certificação cadastrada ainda.
+              </p>
+            ) : (
+              <div className="certifications-grid motion-stagger">
+                {certifications.items.map((cert) => (
+                  <article
+                    key={`${cert.title}-${cert.date}-${cert.issuer}`}
+                    className="cert-card motion-in"
+                  >
+                    <div className="cert-card-header">
+                      <h3 className="cert-card-title">{cert.title}</h3>
+                      <time className="cert-card-date" dateTime={cert.date}>
+                        {cert.date}
+                      </time>
+                    </div>
+                    <p className="cert-card-issuer">{cert.issuer}</p>
+                    {cert.link?.trim() ? (
+                      <a
+                        className="cert-card-link"
+                        href={cert.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        {cert.linkLabel?.trim() || "Ver credencial"}
+                      </a>
+                    ) : null}
+                  </article>
+                ))}
+              </div>
+            )}
           </div>
         </section>
 
